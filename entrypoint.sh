@@ -6,14 +6,13 @@ if [ -z "$DATABASE_URL" ]; then
   exit 1
 fi
 
-# Strip postgresql:// or postgres:// scheme safely (handles special chars in password)
-DB_ADDR=$(printf '%s' "$DATABASE_URL" | sed 's|^postgres[a-z]*://||')
+# Strip scheme (postgres:// or postgresql://) using pure shell — no sed needed
+DB_ADDR="${DATABASE_URL#*://}"
 
-echo "DB_ADDR=$DB_ADDR"
-echo "Running migrations..."
+echo "Starting migrations..."
 /nakama/nakama migrate up --database.address "$DB_ADDR"
 
-echo "Starting Nakama..."
+echo "Starting Nakama server..."
 exec /nakama/nakama \
   --name nakama1 \
   --database.address "$DB_ADDR" \
