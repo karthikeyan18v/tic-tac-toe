@@ -277,42 +277,6 @@ docker logs tic-tac-toe-nakama-1 2>&1 | grep "Tic-Tac-Toe"
 
 ---
 
-## Deployment
-
-### Option A — VPS (DigitalOcean, Hetzner, etc.)
-
-```bash
-# On the server
-git clone https://github.com/karthikeyan18v/tic-tac-toe.git
-cd tic-tac-toe
-docker compose up -d
-
-# Build and serve frontend with nginx
-cd frontend
-npm install
-npm run build      # outputs to dist/
-```
-
-Open firewall ports: `7350` (Nakama API), `7351` (console, optional), `80`/`443` (frontend).
-
-### Option B — Railway (backend) + Vercel (frontend)
-
-**Backend on Railway:**
-1. New Project → Deploy from GitHub → select this repo
-2. Railway detects `docker-compose.yml` automatically
-3. Note the public Nakama URL (e.g. `nakama-xxx.up.railway.app`)
-
-**Frontend on Vercel:**
-1. New Project → Import this repo → set **Root Directory** to `frontend`
-2. Add environment variables:
-   ```
-   VITE_NAKAMA_HOST=nakama-xxx.up.railway.app
-   VITE_NAKAMA_PORT=443
-   VITE_NAKAMA_KEY=defaultkey
-   ```
-3. Deploy — live at `yourapp.vercel.app`
-
----
 
 ## Tech Stack
 
