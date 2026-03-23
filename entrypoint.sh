@@ -25,6 +25,5 @@ exec /nakama/nakama \
   --logger.level INFO \
   --socket.max_message_size_bytes 4096 \
   --runtime.js_entrypoint build/match.js \
-  --port 7350 \
-  --grpc_port 7349 \
-  --console_port 7351
+  --socket.port 7350 \
+  --console.port 7351
