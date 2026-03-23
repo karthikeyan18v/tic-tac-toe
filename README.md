@@ -287,3 +287,4 @@ docker logs tic-tac-toe-nakama-1 2>&1 | grep "Tic-Tac-Toe"
 | Backend | Nakama 3.22.0 (JS runtime / goja) |
 | Database | PostgreSQL 12 |
 | Infrastructure | Docker Compose |
+
