@@ -3,6 +3,7 @@
 A production-ready, real-time multiplayer Tic-Tac-Toe game built with **React + TypeScript** (frontend) and **Nakama** game server (backend). All game logic runs server-side — moves are validated by the server, not the client.
 
 ---
+Live Link- https://tic-tac-toe-alpha-five-83.vercel.app/
 
 ## Features
 
