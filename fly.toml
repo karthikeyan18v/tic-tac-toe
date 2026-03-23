@@ -1,0 +1,20 @@
+app = "tic-tac-toe-jllga"
+primary_region = "bom"
+
+[build]
+
+[env]
+  NAKAMA_CONSOLE_USERNAME = "admin"
+  NAKAMA_CONSOLE_PASSWORD = "admin123"
+
+[[services]]
+  internal_port = 7350
+  protocol = "tcp"
+
+  [[services.ports]]
+    port = 7350
+
+[[vm]]
+  memory = "1gb"
+  cpu_kind = "shared"
+  cpus = 1
