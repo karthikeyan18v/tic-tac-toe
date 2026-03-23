@@ -76,7 +76,8 @@ export async function connect(realName?: string): Promise<{
     // ignore — username may already be set
   }
 
-  const socket = client.createSocket();
+  const useSSL = import.meta.env.VITE_NAKAMA_SSL === "true" || window.location.protocol === "https:";
+  const socket = client.createSocket(useSSL);
   await socket.connect(session, true);
 
   return { socket, session, gameTag: tag, userId: session.user_id || "" };
